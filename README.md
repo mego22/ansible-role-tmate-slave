@@ -1,40 +1,40 @@
-Base
+New Relic Sysmond
 =========
+This role installs [Tmate-slave](https://github.com/tmate-io/tmate-slave) service and ensure its up and running.
 
-This is the base role for my [Ansible](https://ansible.com) roles. Included with the standard Ansible directory structure is a setup for using [test-kitchen](http://kitchen.ci/) with [Docker](https://docker.com) for TDD.
+Requirements
+------------
+None
 
-How to use
-----------
+Role Variables
+--------------
 
-    git clone git@github.com:mego22/ansible-base.git new-role
-    cd new-role/
-    rm -rf .git
-    git init
-    git add .
-    git commit -m "Initial commit."
-    git remote add origin git@github.com:USER/new-role.git
-    push -u origin master
+Install location of binary:
 
-TDD
----
-### Prerequisites
-* [Ansible](http://docs.ansible.com/ansible/intro_installation.html)
-* [Docker](https://docs.docker.com/engine/installation/)
-* [Ruby](https://rvm.io/rvm/install)
-* [Bundler](http://bundler.io/)
-* [Ansible-lint](https://github.com/willthames/ansible-lint)
-* make
+    tmate_slave_prefix: /usr/local/bin
 
-### The Makefile
-The Makefile is used as a wrapper for frequently run tasks. Mostly its wrapping `bundle exec kitchen`.
+Location of ssh keys:
 
-    converge  kitchen converge
-    create    kitchen create
-    destroy   kitchen destroy
-    lint      ansible-lint
-    list      kitchen list
-    login     kitchen login
-    setup     Install needed gems for test-kitchen
-    syntax    ansible-playbook syntax-check
-    test      kitchen test
-    verify    kitchen verify
+    tmate_slave_keys: /etc/tmate-slave-keys
+
+Port tmate-slave should use:
+
+    tmate_slave_port: 2222
+
+Hostname:
+
+    tmate_slave_host: localhost
+
+Example Playbook
+----------------
+
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+
+    - hosts: servers
+      roles:
+         - { role: ansible-role-tmate-slave }
+
+License
+-------
+
+MIT
