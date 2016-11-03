@@ -4,3 +4,11 @@
   when: ansible_os_family == "Debian"
 
 - include: msgpk.yml
+
+- include: install.yml
+
+- include: configure.yml
+
+- include: service.yml
+
+#- include: print_client_config.yml
