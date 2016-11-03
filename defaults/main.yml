@@ -1,3 +1,5 @@
 ---
-# defaults file for ansible-base
-host_name: "name_me_please"
+
+tmate_slave_binary_dir: /usr/local/bin/
+tmate_slave_keys: /etc/tmate-slave-keys
+tmate_slave_port: 2222
