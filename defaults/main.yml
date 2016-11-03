@@ -1,5 +1,6 @@
 ---
 
-tmate_slave_binary_dir: /usr/local/bin/
+tmate_slave_prefix: /usr/local/bin
 tmate_slave_keys: /etc/tmate-slave-keys
 tmate_slave_port: 2222
+tmate_slave_host: localhost
