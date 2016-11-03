@@ -1,2 +1,10 @@
 ---
-# handlers file for ansible-base
+
+- name: restart_tmate-slave
+  service:
+    name: tmate-slave
+    state: restarted
+
+- name: reload_systemd
+  command: systemctl daemon-reload
+  become: true

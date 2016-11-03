@@ -1,0 +1,17 @@
+---
+
+- include_vars: Debian.yml
+
+- name: Tmate-slave | Install prereqs
+  apt: name={{ item }} state=present
+  with_items: "{{ tmate_slave_dependencies }}"
+
+- name: Tmate-slave | Add libssh repo
+  apt_repository:
+    repo: "{{ tmate_slave_libssh_repo }}"
+    update_cache: true
+
+- name: Tmate-slave | Install libssh
+  apt:
+    name: "{{ tmate_slave_libssh_package }}"
+    state: latest

@@ -1,0 +1,17 @@
+---
+
+tmate_slave_dependencies:
+  - git-core
+  - build-essential
+  - pkg-config
+  - libtool
+  - libevent-dev
+  - libncurses-dev
+  - zlib1g-dev
+  - automake
+  - libssh-dev
+  - cmake
+  - ruby
+
+tmate_slave_libssh_repo: ppa:kedazo/libssh-0.7.x
+tmate_slave_libssh_package: libssh-4

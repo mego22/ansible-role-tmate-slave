@@ -1,0 +1,13 @@
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Tmate-Slave
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+User=root
+ExecStart={{ tmate_slave_prefix }}/tmate-slave -p {{ tmate_slave_port }} -k {{ tmate_slave_keys }} -h {{ tmate_slave_host }}

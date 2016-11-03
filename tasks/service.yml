@@ -1,0 +1,7 @@
+---
+
+- name: Tmate-slave | Start and Enable service
+  service:
+    name: tmate-slave
+    state: started
+    enabled: yes
