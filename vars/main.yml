@@ -1,2 +1,3 @@
 ---
-# vars file for ansible-base
+tmate_slave_msgpack_repo: https://github.com/msgpack/msgpack-c.git
+tmate_slave_msgpack_source: /tmp/msgpk-c

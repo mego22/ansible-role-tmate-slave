@@ -1,0 +1,12 @@
+---
+
+- name: Tmate-slave | Clone msgpk repot
+  git:
+    repo: "{{ tmate_slave_msgpack_repo }}"
+    dest: "{{ tmate_slave_msgpack_source }}"
+
+- name: Tmate-slave | Compile msgpk
+  shell: cmake . && make && make install
+  args:
+    chdir: "{{ tmate_slave_msgpack_source }}"
+    creates: /usr/local/lib/libmsgpackc.so.2.0.0
