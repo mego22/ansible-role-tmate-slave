@@ -1,0 +1,14 @@
+#!/bin/sh
+
+tmate_slave_host={{ tmate_slave_host }}
+tmate_slave_port={{ tmate_slave_port }}
+tmate_slave_keys_dir={{ tmate_slave_keys }}
+
+tmate_slave_rsa_fingerprint=`ssh-keygen -E md5 -lf ${tmate_slave_keys_dir}/ssh_host_rsa_key.pub | awk '{print $2}' | cut -d: -f2-`
+tmate_slave_ecdsa_fingerprint=`ssh-keygen -E md5 -lf ${tmate_slave_keys_dir}/ssh_host_ecdsa_key.pub | awk '{print $2}' | cut -d: -f2-`
+
+echo "set -g tmate-server-host \"${tmate_slave_host}\""
+echo "set -g tmate-server-port \"${tmate_slave_port}\""
+echo "set -g tmate-server-rsa-fingerprint \"${tmate_slave_rsa_fingerprint}\""
+echo "set -g tmate-server-ecdsa-fingerprint \"${tmate_slave_ecdsa_fingerprint}\""
+echo "set -g tmate-identity \"\"             # Can be specified to use a different SSH key.\n"

@@ -1,0 +1,15 @@
+---
+
+- name: Tmate-slave | Place script for printing client config
+  template:
+    src: generate_client_config.sh.jn2
+    dest: /tmp/generate_client_config.sh
+    mode: 0755
+
+- name: Tmate-slave | Generate client config
+  command: /tmp/generate_client_config.sh
+  register: output
+
+- name: Tmate-slave | Print client config
+  debug: var={{item}}
+  with_items: "{{ output.stdout_lines }}"
