@@ -1,0 +1,9 @@
+---
+
+- name: Tmate-slave | Setup systemd file
+  template:
+    src: tmate-slave.service.jn2
+    dest: /etc/systemd/system/tmate-slave.service
+  notify:
+    - reload_systemd
+    - restart_tmate-slave
